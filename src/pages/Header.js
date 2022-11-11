@@ -4,15 +4,20 @@ import logo from './../images/893946_medium2000.png'
 import './../css/nicepage.css'
 import './../css/Main.css'
 
-function Header(props) {
+import { useTranslation } from 'react-i18next';
+
+function Header() {
+    const { t, i18n } = useTranslation();
+    const handleLanguage = (language) => i18n.changeLanguage(language)
+
     return (
         <div>
             <header className="u-clearfix u-header u-palette-4-base u-sticky u-sticky-576f u-header" id="sec-9a0b">
                 <div className="u-clearfix u-sheet u-sheet-1">
                     <h2 className="u-hover-feature u-subtitle u-text u-text-default u-text-1">Education</h2>
-                    <a href="#" className="u-image u-logo u-image-1" data-image-width="600" data-image-height="600">
+                    <Link to="/" className="u-image u-logo u-image-1" data-image-width="600" data-image-height="600">
                         <img src={logo} className="u-logo-image u-logo-image-1"/>
-                    </a>
+                    </Link>
                     <nav className="u-menu u-menu-dropdown u-offcanvas u-menu-1">
                         <div className="menu-collapse" style={{fontSize: "1rem", letterSpacing: 0}}>
                             <a className="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
@@ -35,15 +40,34 @@ function Header(props) {
                             <ul className="u-nav u-unstyled u-nav-1">
                                 <li className="u-nav-item"><Link
                                     className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                    to="/Главная.html" style={{padding: "10px 20px"}}>Главная</Link>
+                                    to="/Главная.html" style={{padding: "10px 20px"}}>{t('header.title')}</Link>
                                 </li>
                                 <li className="u-nav-item"><Link
                                     className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                    to="/О-нас.html" style={{padding: "10px 20px"}}>О нас</Link>
+                                    to="/О-нас.html" style={{padding: "10px 20px"}}>{t('header.about')}</Link>
                                 </li>
                                 <li className="u-nav-item"><Link
                                     className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
-                                    to="/Контакты.html" style={{padding: "10px 20px"}}>Контакты</Link>
+                                    to="/Контакты.html" style={{padding: "10px 20px"}}>{t('header.contact')}</Link>
+                                </li>
+                                <li className="u-nav-item">
+                                    <Link
+                                        className="u-button-style u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base"
+                                        to="#" style={{padding: "10px 20px"}}>Language {t('header.language')}</Link>
+                                    <div className="u-nav-popup u-block-control u-block-576f-25" data-block="40">
+                                        <ul className="u-nav u-unstyled u-block-control u-v-spacing-6 u-h-spacing-42 u-block-576f-26"
+                                            data-block="41"
+                                            style={{boxShadow: "5px 6px 20px 0px rgba(var(--black-r),var(--black-g),var(--black-b),0.4"}}>
+                                            <li className="u-nav-item"><a
+                                                onClick={() => handleLanguage('en')}
+                                                className="u-nav-link u-button-style u-hover-palette-4-light-2 u-palette-4-light-3">EN</a>
+                                            </li>
+                                            <li className="u-nav-item"><a
+                                                onClick={() => handleLanguage('de')}
+                                                className="u-nav-link u-button-style u-hover-palette-4-light-2 u-palette-4-light-3">DE</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </li>
                             </ul>
                         </div>
@@ -62,6 +86,7 @@ function Header(props) {
                                         <li className="u-nav-item"><a className="u-button-style u-nav-link"
                                                                       href="Контакты.html">Контакты</a>
                                         </li>
+
                                     </ul>
                                 </div>
                             </div>
@@ -71,6 +96,7 @@ function Header(props) {
                 </div>
             </header>
         </div>
+
     );
 }
 
