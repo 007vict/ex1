@@ -11,7 +11,7 @@ function Header() {
     const handleLanguage = (language) => i18n.changeLanguage(language)
 
     return (
-        <div>
+        <>
             <header className="u-clearfix u-header u-palette-4-base u-sticky u-sticky-576f u-header" id="sec-9a0b">
                 <div className="u-clearfix u-sheet u-sheet-1">
                     <h2 className="u-hover-feature u-subtitle u-text u-text-default u-text-1">Education</h2>
@@ -95,7 +95,7 @@ function Header() {
                     </nav>
                 </div>
             </header>
-        </div>
+        </>
 
     );
 }
