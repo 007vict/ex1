@@ -2,6 +2,8 @@ import React from "react";
 import './../css/nicepage.css'
 import './../css/Main.css'
 
+import Byu_Now from './Byu_now';
+
 
 function Home() {
     return (
@@ -30,6 +32,7 @@ function Home() {
                     </div>
                 </div>
             </section>
+            <Byu_Now />
         </>
 
     )

@@ -4,12 +4,14 @@ import Contact from "./pages/Contact";
 import Footer from "./pages/Footer";
 import About from "./pages/About";
 import {Route, Routes} from 'react-router-dom'
+import PaymentForm from "./pages/PaymentForm";
 
 function App() {
     return (
         <div>
             <Header/>
             <Routes>
+                <Route exact path="/payment" element={<PaymentForm />} />
                 <Route exact path="/О-нас.html" element={<About />} />
                 <Route exact path="/Контакты.html" element={<Contact />} />
                 <Route exact path="/Главная.html" element={<Home/>} />
